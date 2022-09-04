@@ -1,18 +1,19 @@
 import React from 'react';
+import styles from './Cart.module.scss'
 
 const Cart = () => {
 	 return (
 		 <div>
-			  <div style={{display: "none"}} className="overlay">
-					<div className="cart">
-						 <div className="cartHeader">
+			  <div style={{display: "none"}} className={styles.overlay}>
+					<div className={styles.cart}>
+						 <div className={styles.cartHeader}>
 							  <h2>Корзина</h2>
 							  <img src="/img/close.png" alt="close"/>
 						 </div>
 
 
-						 <div className="items">
-							  <div className="cartItem">
+						 <div className={styles.items}>
+							  <div className={styles.cartItem}>
 									<img src="/img/1.jpg" width={100} alt="Beer"/>
 									<div>
 										 <p>Delirium Red</p>
@@ -24,7 +25,7 @@ const Cart = () => {
 							  </div>
 						 </div>
 
-						 <div className="cartCount">
+						 <div className={styles.cartCount}>
 							  <ul>
 									<li>
 										 <span>Итого:</span>
@@ -37,7 +38,7 @@ const Cart = () => {
 										 <b> 401 руб.</b>
 									</li>
 							  </ul>
-							  <button className="greenBtn" >Оформить заказ <img src="/img/arrowRight.png" width={18} alt="arrow"/> </button>
+							  <button className={styles.greenBtn} >Оформить заказ <img src="/img/arrowRight.png" width={18} alt="arrow"/> </button>
 						 </div>
 					</div>
 			  </div>
