@@ -1,29 +1,37 @@
 import React from 'react';
-import styles from './Header.module.scss'
+import { Link } from 'react-router-dom';
+import styles from './Header.module.scss';
+import AppContext from '../../context';
 
 const Header = () => {
-	 return (
-		 <div>
-			  <header>
-					<div className={styles.headerLeft}>
-						 <img src="/img/logo.png" width={50} height={50} alt="BeerLogo"/>
-						 <div>
-							  <h2>Beer World</h2>
-							  <p>Лучший пивной магазин</p>
-						 </div>
-					</div>
-					<ul className={styles.headerRight}>
-						 <li>
-							  <img src="/img/cart.png" height={25} alt="Cart"/>
-							  <span>1025 руб.</span>
-						 </li>
-						 <li>
-							  <img src="/img/user.svg" height={30} alt="User"/>
-						 </li>
-					</ul>
-			  </header>
-		 </div>
-	 );
+  const { totalPrice, onOpenCloseCart } = React.useContext(AppContext);
+
+  return (
+    <div>
+      <header>
+        <Link to="/">
+          <div className={styles.headerLeft}>
+            <img src="/img/logo.png" width={60} height={60} alt="BeerLogo" />
+            <div>
+              <h2>Beer World</h2>
+              <p>Лучший пивной магазин</p>
+            </div>
+          </div>
+        </Link>
+        <ul className={styles.headerRight}>
+          <li onClick={onOpenCloseCart} className={styles.cart}>
+            <img src="/img/cart.png" height={25} alt="Cart" />
+            <span>{totalPrice} руб.</span>
+          </li>
+          <Link to="/favourites">
+            <li>
+              <img src="/img/bookmark.png" height={30} alt="Bookmark" />
+            </li>
+          </Link>
+        </ul>
+      </header>
+    </div>
+  );
 };
 
 export default Header;

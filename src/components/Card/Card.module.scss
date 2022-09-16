@@ -47,28 +47,19 @@
 	position: absolute;
 	top: 20px;
 	left: 20px;
-	opacity: 0.2;
+	opacity: 0.7;
 
 	&:hover {
 		cursor: pointer;
-		opacity: 0.7;
 	}
 }
 
 .cardPrice {
+	position: relative;
 	display: flex;
 	align-items: center;
 	font-size: 17px;
 	opacity: 0.7;
-
-	img {
-		opacity: 0.5;
-		margin-left: 10px;
-		&:hover {
-			cursor: pointer;
-			opacity: 0.9;
-		}
-	}
 }
 
 .price {
@@ -76,3 +67,40 @@
 	font-weight: 600;
 	font-size: 16px;
 }
+
+
+.count {
+	background-color: inherit;
+	font-weight: bold;
+	font-size: 14px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	border: 2px solid #3d3d3d;
+	width: 25px;
+	height: 25px;
+	margin-left: 10px;
+	cursor: pointer;
+	color: #3d3d3d;
+	&:hover {
+		background-color: #9DD558;
+	}
+	&:active {
+		background-color: #6fbc01;
+	}
+}
+
+.countNull {
+	border: 0;
+	padding: 0;
+	background-color: inherit;
+	font-size: 10px;
+	position: absolute;
+	right: -10px;
+	top: -5px;
+	&:hover {
+		cursor: pointer;
+	}
+}
+

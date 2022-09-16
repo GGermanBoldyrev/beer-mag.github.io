@@ -1,5 +1,5 @@
 .overlay {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: 1;
@@ -25,6 +25,13 @@
 	}
 }
 
+.content {
+	height: 96%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
 .items {
 	flex: 1;
 	margin: 50px 0 50px 10px;
@@ -43,16 +50,23 @@
 	position: absolute;
 	right: 0;
 	width: 392px;
-	height: 100%;
+	height: 100vh;
 	background-color: #ffffff;
 	box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
 	padding: 30px;
 	border-bottom-left-radius: 20px;
 	border-top-left-radius: 20px;
+	animation: arrival 0.5s ease-in;
 
 	h2 {
 		font-size: 30px;
 		margin: 0;
+	}
+
+	@keyframes arrival {
+		0% {
+			right: -392px;
+		}
 	}
 }
 
@@ -84,6 +98,7 @@
 
 		p {
 			margin: 0 0 5px 0;
+			text-align: center;
 		}
 
 		img {
@@ -119,24 +134,8 @@
 	}
 }
 
-.greenBtn {
-	margin-top: 30px;
-
-	img {
-		position: absolute;
-		right: 55px;
-	}
-}
-
 .greenBtn:hover {
 	img {
-		animation: moveRight 1.5s infinite linear;
-		animation-delay: 0.25s;
-		@keyframes moveRight {
-			100% {
-				transform: translateX(25px);
-			}
-		}
 
 	}
 }
@@ -153,6 +152,12 @@
 	border-radius: 20px;
 	color: #ffffff;
 	font-size: 20px;
+	margin-top: 30px;
+
+	img {
+		position: absolute;
+		right: 55px;
+	}
 
 	&:hover {
 		-webkit-box-shadow: 0 5px 10px 2px rgba(34, 60, 80, 0.2) inset;
@@ -163,5 +168,45 @@
 
 	&:active {
 		background-color: darken(#9DD558, 5%);
+	}
+}
+
+/*Пустая корзина*/
+
+.emptyContent {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+
+	.greenBtn {
+		img {
+			left: 55px;
+			transform: rotate(180deg);
+			animation: none;
+		}
+	}
+}
+
+.image {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+
+	p {
+		font-size: 20px;
+		text-align: center;
+	}
+}
+
+@media (max-width: 420px) {
+	.cart {
+		width: 100vw;
+	}
+	.greenBtn {
+		img {
+			display: none;
+		}
 	}
 }
