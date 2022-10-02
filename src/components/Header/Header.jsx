@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.scss';
-import AppContext from '../../context';
+import {useDispatch, useSelector} from "react-redux";
+import {openCart} from "../../redux/slices/cartSlice";
 
 const Header = () => {
-  const { totalPrice, onOpenCloseCart } = React.useContext(AppContext);
+  const totalPrice = useSelector((state) => state.cartSlice.totalPrice)
+  const dispatch = useDispatch()
 
   return (
     <div>
@@ -19,7 +21,7 @@ const Header = () => {
           </div>
         </Link>
         <ul className={styles.headerRight}>
-          <li onClick={onOpenCloseCart} className={styles.cart}>
+          <li onClick={() => dispatch(() => dispatch(openCart()))} className={styles.cart}>
             <img src="/img/cart.png" height={25} alt="Cart" />
             <span>{totalPrice} руб.</span>
           </li>

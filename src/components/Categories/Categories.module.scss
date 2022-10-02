@@ -1,0 +1,32 @@
+.list {
+  font-size: 16px;
+  display: flex;
+  :not(:first-child) {
+    margin-left: 15px
+  }
+
+  li {
+    padding: 5px 10px;
+    border-radius: 0 15px 0 15px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.active {
+  font-size: 20px;
+  font-weight: 500;
+  background-color: #fcdc5f;
+}
+
+.inactive {
+  background-color: #f9f9f9;
+}
+
+@media (max-width: 830px) {
+  .list {
+    margin-bottom: 15px;
+  }
+}

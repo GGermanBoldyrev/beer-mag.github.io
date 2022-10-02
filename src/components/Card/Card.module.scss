@@ -90,17 +90,3 @@
 		background-color: #6fbc01;
 	}
 }
-
-.countNull {
-	border: 0;
-	padding: 0;
-	background-color: inherit;
-	font-size: 10px;
-	position: absolute;
-	right: -10px;
-	top: -5px;
-	&:hover {
-		cursor: pointer;
-	}
-}
-

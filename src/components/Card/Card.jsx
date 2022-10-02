@@ -2,15 +2,12 @@ import React from 'react';
 import styles from './Card.module.scss';
 import AppContext from '../../context';
 
-const Card = ({ imageURL, title, price, onPlus, onFavourite }) => {
-  const { isAddedToFavorite } = React.useContext(AppContext);
 
-  const plus = () => {
-    onPlus({ title, price, imageURL });
-  };
+const Card = ({imageURL, title, price, onFavourite, onAddToCart}) => {
+  const {isAddedToFavorite} = React.useContext(AppContext);
 
   const onLike = () => {
-    onFavourite({ title, price, imageURL });
+    onFavourite({title, price, imageURL});
   };
 
   return (
@@ -24,7 +21,7 @@ const Card = ({ imageURL, title, price, onPlus, onFavourite }) => {
             width={25}
             className={styles.like}
           />
-          <img src={imageURL} height={150} alt="BeerImg" />
+          <img src={imageURL} height={150} alt="BeerImg"/>
           <div>
             <b>{title}</b>
           </div>
@@ -33,9 +30,7 @@ const Card = ({ imageURL, title, price, onPlus, onFavourite }) => {
           <span>
             Цена: <span className={styles.price}>{price}</span> руб.
           </span>
-          <button className={styles.count} onClick={plus}>
-            +
-          </button>
+          <button className={styles.count} onClick={onAddToCart}>+</button>
         </div>
       </div>
     </div>

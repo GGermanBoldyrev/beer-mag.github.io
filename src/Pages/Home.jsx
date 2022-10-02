@@ -1,44 +1,58 @@
 import React from 'react';
 import Card from '../components/Card/Card';
+import Select from '../components/Select/Select';
+import Categories from '../components/Categories/Categories';
 import AppContext from '../context';
+import {beerArr} from '../consts/beerArray';
+import {useDispatch} from "react-redux";
+import {addItem} from "../redux/slices/cartSlice";
 
 const Home = () => {
-  const { beerArr, setInputValue, onChangeInputValue, inputValue, onAddToFavourite, onAddToCart } =
-    React.useContext(AppContext);
+    const {setInputValue, onChangeInputValue, inputValue, onAddToFavourite} =
+        React.useContext(AppContext);
 
-  return (
-    <div className="content">
-      <div className="contentHeader">
-        <h1>{inputValue ? `Поиск по запросу: "${inputValue}"` : `Всё пиво`}</h1>
-        <div className="search">
-          <img src="/img/search.png" width={15} alt="SearchIcon" />
-          <input
-            onChange={onChangeInputValue}
-            value={inputValue}
-            type="text"
-            placeholder="Поиск..."
-          />
-          {inputValue && (
-            <img onClick={() => setInputValue('')} src="/img/close.png" width={15} alt="close" />
-          )}
+    const dispatch = useDispatch()
+
+    return (
+        <div className="content">
+            <div className="contentHeaderTop">
+                <Categories/>
+                <Select/>
+            </div>
+            <div className="contentHeaderBottom">
+                <div className="beerChoose">
+                    <h1>{inputValue ? `Поиск по запросу: "${inputValue}"` : `Всё пиво`}</h1>
+                </div>
+                <div className="search">
+                    <img src="/img/search.png" width={15} alt="SearchIcon"/>
+                    <input
+                        onChange={onChangeInputValue}
+                        value={inputValue}
+                        type="text"
+                        placeholder="Поиск..."
+                    />
+                    {inputValue && (
+                        <img onClick={() => setInputValue('')} src="/img/close.png" width={15} alt="close"/>
+                    )}
+                </div>
+            </div>
+            <div className="cardContainer">
+                {beerArr
+                    .filter((obj) => obj.title.toLowerCase().includes(inputValue.toLowerCase()))
+                    .map((obj, title) => (
+                        <Card
+                            key={title}
+                            title={obj.title}
+                            price={obj.price}
+                            imageURL={obj.imageURL}
+                            onFavourite={(obj) => onAddToFavourite(obj)}
+                            obj={obj}
+                            onAddToCart={(obj) => dispatch(addItem(obj))}
+                        />
+                    ))}
+            </div>
         </div>
-      </div>
-      <div className="cardContainer">
-        {beerArr
-          .filter((obj) => obj.title.toLowerCase().includes(inputValue.toLowerCase()))
-          .map((obj, title) => (
-            <Card
-              key={title}
-              title={obj.title}
-              price={obj.price}
-              imageURL={obj.imageURL}
-              onFavourite={(obj) => onAddToFavourite(obj)}
-              onPlus={(item) => onAddToCart(item)}
-            />
-          ))}
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Home;
