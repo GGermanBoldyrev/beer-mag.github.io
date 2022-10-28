@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/beer-mag.github.io/static/css/main.e06dbee6.css",
-    "main.js": "/beer-mag.github.io/static/js/main.a8ed0bdc.js",
-    "index.html": "/beer-mag.github.io/index.html",
-    "main.e06dbee6.css.map": "/beer-mag.github.io/static/css/main.e06dbee6.css.map",
-    "main.a8ed0bdc.js.map": "/beer-mag.github.io/static/js/main.a8ed0bdc.js.map"
+    "main.css": "/static/css/main.e06dbee6.css",
+    "main.js": "/static/js/main.d7e65e2b.js",
+    "index.html": "/index.html",
+    "main.e06dbee6.css.map": "/static/css/main.e06dbee6.css.map",
+    "main.d7e65e2b.js.map": "/static/js/main.d7e65e2b.js.map"
   },
   "entrypoints": [
     "static/css/main.e06dbee6.css",
-    "static/js/main.a8ed0bdc.js"
+    "static/js/main.d7e65e2b.js"
   ]
 }
