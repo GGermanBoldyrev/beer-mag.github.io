@@ -10,6 +10,10 @@ const Card = ({imageURL, title, price, onFavourite, onAddToCart}) => {
     onFavourite({title, price, imageURL});
   };
 
+  const onAdd = () => {
+    onAddToCart({title, price, imageURL})
+  }
+
   return (
     <div>
       <div className={styles.card}>
@@ -30,7 +34,7 @@ const Card = ({imageURL, title, price, onFavourite, onAddToCart}) => {
           <span>
             Цена: <span className={styles.price}>{price}</span> руб.
           </span>
-          <button className={styles.count} onClick={onAddToCart}>+</button>
+          <button className={styles.count} onClick={onAdd}>+</button>
         </div>
       </div>
     </div>

@@ -1,7 +1,5 @@
 import React from 'react';
 import Card from '../components/Card/Card';
-import Select from '../components/Select/Select';
-import Categories from '../components/Categories/Categories';
 import AppContext from '../context';
 import {beerArr} from '../consts/beerArray';
 import {useDispatch} from "react-redux";
@@ -15,10 +13,6 @@ const Home = () => {
 
     return (
         <div className="content">
-            <div className="contentHeaderTop">
-                <Categories/>
-                <Select/>
-            </div>
             <div className="contentHeaderBottom">
                 <div className="beerChoose">
                     <h1>{inputValue ? `Поиск по запросу: "${inputValue}"` : `Всё пиво`}</h1>
